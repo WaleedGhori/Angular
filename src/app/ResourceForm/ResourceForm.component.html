@@ -9,9 +9,9 @@
   </div>
 
   <div style="margin-bottom: 15px;">
-    <label for="email">Operator:</label>
-    <input id="email" formControlName="email" type="email" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
-    <div *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched" style="color: red;">
+    <label for="operator">Operator:</label>
+    <input id="operator" formControlName="operator" type="operator" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
+    <div *ngIf="checkoutForm.get('operator')?.invalid && checkoutForm.get('operator')?.touched" style="color: red;">
       A valid email is required.
     </div>
   </div>
