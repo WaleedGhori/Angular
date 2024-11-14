@@ -3,49 +3,40 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-resourceForm',
-  templateUrl: './resourceForm.component.html',
-  styleUrls: ['./resourceForm.component.css']
+  templateUrl: './ResourceForm.component.html',
+  styleUrls: ['./ResourceForm.component.css']
 })
 export class ResourceFormComponent {
   checkoutForm: FormGroup;
-  networks: FormArray;
-  showSubnet = false;
-  showGnet = false;
-  showVnet = false;
+  showSubnet: boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.checkoutForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
+      operator: ['', [Validators.required]],
       address: ['', Validators.required],
-      networks: this.fb.array([])
+      networks: this.fb.array([])  
     });
-    this.networks = this.checkoutForm.get('networks') as FormArray;
+  }
+
+  // Getter for networks form array
+  get networks() {
+    return (this.checkoutForm.get('networks') as FormArray);
   }
 
   addNetwork(type: string): void {
-    this.networks.push(this.fb.group({
-      type: [type, Validators.required],
-      name: ['', Validators.required]
-    }));
-
-    // Show corresponding network component
     if (type === 'subnet') {
-      this.showSubnet = true;
-    } else if (type === 'gnet') {
-      this.showGnet = true;
-    } else if (type === 'vnet') {
-      this.showVnet = true;
+      this.showSubnet = true;  
     }
   }
 
+  // Method to remove a network form
   removeNetwork(index: number): void {
     this.networks.removeAt(index);
-    this.showSubnet = this.networks.value.some((network: any) => network.type === 'subnet');
-    this.showGnet = this.networks.value.some((network: any) => network.type === 'gnet');
-    this.showVnet = this.networks.value.some((network: any) => network.type === 'vnet');
+    this.showSubnet = false;  // Hide subnet component if no 'subnet' network exists
   }
 
+  // Submit form handler
   onSubmit(): void {
     console.log(this.checkoutForm.value);
   }

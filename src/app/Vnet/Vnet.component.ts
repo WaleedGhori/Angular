@@ -10,7 +10,11 @@ export class VnetComponent implements OnInit {
   @Input() parentForm!: FormGroup; 
 
   constructor() { }
-
+  renderValue: number = 1;
+  
+  addRender(){
+     this.renderValue +=1;
+  }
   ngOnInit(): void {
    
     }

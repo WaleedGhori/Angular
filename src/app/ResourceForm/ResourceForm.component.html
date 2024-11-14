@@ -36,8 +36,6 @@
   <!-- Buttons to Add Subnet, Gnet, Vnet -->
   <div style="margin-bottom: 20px;">
     <button type="button" (click)="addNetwork('subnet')" style="margin-right: 10px;">Add Subnet</button>
-    <button type="button" (click)="addNetwork('gnet')" style="margin-right: 10px;">Add Gnet</button>
-    <button type="button" (click)="addNetwork('vnet')">Add Vnet</button>
   </div>
 
   <button type="submit" [disabled]="checkoutForm.invalid" style="width: 100%; padding: 12px; border: none; background-color: #007bff; color: white; font-weight: bold; border-radius: 6px; cursor: pointer;">
@@ -45,7 +43,4 @@
   </button>
 </form>
 
-<!-- Conditionally Display Network Components -->
-<app-subnet *ngIf="showSubnet"></app-subnet>
-<app-gnet *ngIf="showGnet"></app-gnet>
-<app-vnet *ngIf="showVnet"></app-vnet>
+<app-subnet *ngIf="showSubnet"></app-subnet>  

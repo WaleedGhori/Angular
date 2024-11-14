@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-gnet',
-  templateUrl: './gnet.component.html',
-  styleUrls: ['./gnet.component.css']
+  selector: 'app-nic',
+  templateUrl: './nic.component.html',
+  styleUrls: ['./nic.component.css']
 })
 export class GnetComponent implements OnInit {
   @Input() parentForm!: FormGroup; 
