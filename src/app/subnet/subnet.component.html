@@ -1,15 +1,13 @@
-<div>
-    <label>Subnet:</label>
-    <input
-      type="text"
-      [formControl]="formGroup"
-      placeholder="Enter Subnet"
-      style="width: 90%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"
-    />
-    <div *ngIf="formGroup?.invalid && formGroup?.touched" style="color: red;">
-      Subnet is required.
-    </div>
-
-    <app-nic></app-nic>
+<div [formGroup]="resourceForm">
+  <label>Subnet:</label>
+  <input
+    type="text"
+    formControlName="subnetName"
+    placeholder="Enter Subnet"
+    style="width: 90%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"
+  />
+  <div *ngIf="resourceForm.get('subnetName')?.invalid && resourceForm.get('subnetName')?.touched" style="color: red;">
+    Subnet is required.
   </div>
-  
+  <app-nic></app-nic>
+</div>

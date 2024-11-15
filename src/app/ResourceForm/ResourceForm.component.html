@@ -1,64 +1,36 @@
-<form
-  [formGroup]="networkForm"
-  (ngSubmit)="onSubmit()"
-  style="width: 50%; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
->
-  <!-- Full Name -->
+<form [formGroup]="networkForm" (ngSubmit)="onSubmit()" style="width: 50%; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
   <div style="margin-bottom: 15px;">
     <label for="fullName">Name:</label>
-    <input
-      id="fullName"
-      formControlName="fullName"
-      style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;"
-    />
+    <input id="fullName" formControlName="fullName" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
     <div *ngIf="networkForm.get('fullName')?.invalid && networkForm.get('fullName')?.touched" style="color: red;">
       Name is required
     </div>
   </div>
 
-  <!-- Operator -->
   <div style="margin-bottom: 15px;">
     <label for="operator">Operator:</label>
-    <input
-      id="operator"
-      formControlName="operator"
-      style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;"
-    />
+    <input id="operator" formControlName="operator" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
     <div *ngIf="networkForm.get('operator')?.invalid && networkForm.get('operator')?.touched" style="color: red;">
       Operator is required
     </div>
   </div>
 
-  <!-- Description -->
   <div style="margin-bottom: 20px;">
     <label for="description">Description:</label>
-    <input
-      id="description"
-      formControlName="description"
-      style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;"
-    />
+    <input id="description" formControlName="description" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
     <div *ngIf="networkForm.get('description')?.invalid && networkForm.get('description')?.touched" style="color: red;">
-      Description is required.
+      Description is required
     </div>
   </div>
 
-  <!-- Subnets Array -->
-  <div formArrayName="subnets">
-    <div *ngFor="let subnet of subnets.controls; let i = index">
-      <div [formGroup]="subnet" style="margin-bottom: 10px;">
-        <app-subnet [formGroup]="subnet"></app-subnet>
-        <button type="button" (click)="removeSubnet(i)" style="background-color: red; color: white; margin-top: 5px;">
-          Remove Subnet
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add Subnet Button -->
   <button type="button" (click)="addSubnet()" style="margin-top: 20px;">Add Subnet</button>
+  <div formArrayName="subnets" style="margin-top: 20px;">
+    <div *ngFor="let subnet of subnets.controls; let i = index" [formGroupName]="i">
+      <app-subnet [resourceForm]="subnet"></app-subnet>
+      <button type="button" (click)="removeSubnet(i)" style="background-color: red; color: white; margin-top: 10px;">
+        Remove Subnet
+      </button>
+    </div>
+  </div>
 
-  <!-- Submit Button -->
-  <button type="submit" [disabled]="networkForm.invalid" style="margin-top: 20px;">
-    Submit
-  </button>
 </form>

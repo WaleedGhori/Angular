@@ -14,16 +14,21 @@ export class ResourceFormComponent {
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       operator: ['', [Validators.required]],
       description: ['', Validators.required],
-      subnets: this.fb.array([])  
+      subnets: this.fb.array([]) // Empty Array to save the value of subnets form
     });
   }
+
   get subnets() {
     return this.networkForm.get('subnets') as FormArray;
   }
 
   addSubnet(): void {
-    this.subnets.push(this.fb.control('', Validators.required));
+    const subnetGroup = this.fb.group({
+      subnetName: ['', Validators.required]
+    });
+    this.subnets.push(subnetGroup);
   }
+
   removeSubnet(index: number): void {
     this.subnets.removeAt(index);
   }

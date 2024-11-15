@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
@@ -8,10 +7,12 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./subnet.component.css']
 })
 export class SubnetComponent implements OnInit {
-  @Input() formGroup: FormGroup;
-  constructor() { }
+  @Input() resourceForm!: FormGroup;
+  constructor() {}
 
   ngOnInit(): void {
+    if (!this.resourceForm) {
+      console.error('SubnetComponent: resourceForm is not defined!');
+    }
   }
-
 }
