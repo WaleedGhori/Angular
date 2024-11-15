@@ -1,46 +1,64 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" style="width: 50%; margin:auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-  <!-- Form Fields for Full Name, Email, and Address -->
+<form
+  [formGroup]="networkForm"
+  (ngSubmit)="onSubmit()"
+  style="width: 50%; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"
+>
+  <!-- Full Name -->
   <div style="margin-bottom: 15px;">
     <label for="fullName">Name:</label>
-    <input id="fullName" formControlName="fullName" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
-    <div *ngIf="checkoutForm.get('fullName')?.invalid && checkoutForm.get('fullName')?.touched" style="color: red;">
-      Full Name is required and must be at least 3 characters long.
+    <input
+      id="fullName"
+      formControlName="fullName"
+      style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;"
+    />
+    <div *ngIf="networkForm.get('fullName')?.invalid && networkForm.get('fullName')?.touched" style="color: red;">
+      Name is required
     </div>
   </div>
 
+  <!-- Operator -->
   <div style="margin-bottom: 15px;">
     <label for="operator">Operator:</label>
-    <input id="operator" formControlName="operator" type="operator" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
-    <div *ngIf="checkoutForm.get('operator')?.invalid && checkoutForm.get('operator')?.touched" style="color: red;">
-      A valid email is required.
+    <input
+      id="operator"
+      formControlName="operator"
+      style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;"
+    />
+    <div *ngIf="networkForm.get('operator')?.invalid && networkForm.get('operator')?.touched" style="color: red;">
+      Operator is required
     </div>
   </div>
 
+  <!-- Description -->
   <div style="margin-bottom: 20px;">
-    <label for="address">Description:</label>
-    <input id="address" formControlName="address" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
-    <div *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched" style="color: red;">
-      Address is required.
+    <label for="description">Description:</label>
+    <input
+      id="description"
+      formControlName="description"
+      style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;"
+    />
+    <div *ngIf="networkForm.get('description')?.invalid && networkForm.get('description')?.touched" style="color: red;">
+      Description is required.
     </div>
   </div>
 
-  <!-- Dynamic Sections for Networks -->
-  <div formArrayName="networks">
-    <div *ngFor="let network of networks.controls; let i = index" [formGroupName]="i" style="margin-bottom: 15px;">
-      <label>{{ network.value.type }} Name:</label>
-      <input formControlName="name" style="width: 90%; padding: 10px; margin-right: 10px; border: 2px solid #ddd; border-radius: 6px;">
-      <button type="button" (click)="removeNetwork(i)" style="background-color: red; color: white;">Remove</button>
+  <!-- Subnets Array -->
+  <div formArrayName="subnets">
+    <div *ngFor="let subnet of subnets.controls; let i = index">
+      <div [formGroup]="subnet" style="margin-bottom: 10px;">
+        <app-subnet [formGroup]="subnet"></app-subnet>
+        <button type="button" (click)="removeSubnet(i)" style="background-color: red; color: white; margin-top: 5px;">
+          Remove Subnet
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- Buttons to Add Subnet, Gnet, Vnet -->
-  <div style="margin-bottom: 20px;">
-    <button type="button" (click)="addNetwork('subnet')" style="margin-right: 10px;">Add Subnet</button>
-  </div>
+  <!-- Add Subnet Button -->
+  <button type="button" (click)="addSubnet()" style="margin-top: 20px;">Add Subnet</button>
 
-  <button type="submit" [disabled]="checkoutForm.invalid" style="width: 100%; padding: 12px; border: none; background-color: #007bff; color: white; font-weight: bold; border-radius: 6px; cursor: pointer;">
+  <!-- Submit Button -->
+  <button type="submit" [disabled]="networkForm.invalid" style="margin-top: 20px;">
     Submit
   </button>
 </form>
-
-<app-subnet *ngIf="showSubnet"></app-subnet>  

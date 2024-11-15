@@ -6,7 +6,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './nic.component.html',
   styleUrls: ['./nic.component.css']
 })
-export class GnetComponent implements OnInit {
+export class NicComponent implements OnInit {
   @Input() parentForm!: FormGroup; 
 
   constructor() {}

@@ -7,18 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ResourceFormComponent } from './ResourceForm/ResourceForm.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
-// import { VnetComponent } from './Vnet/Vnet.component';
-// import { SubnetComponent } from './subnet/subnet.component';
-// import { GnetComponent } from './gnet/gnet.component';
+import { VnetComponent } from './Vnet/Vnet.component';
+import { SubnetComponent } from './subnet/subnet.component';
+import { NicComponent } from './nic/nic.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ResourceFormComponent,
-    // VnetComponent,
-    // SubnetComponent,
-    // GnetComponent,
+    VnetComponent,
+    SubnetComponent,
+    NicComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],

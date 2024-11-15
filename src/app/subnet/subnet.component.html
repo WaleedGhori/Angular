@@ -1,5 +1,15 @@
-<app-resourceForm></app-resourceForm>
-<app-gnet></app-gnet>
+<div>
+    <label>Subnet:</label>
+    <input
+      type="text"
+      [formControl]="formGroup"
+      placeholder="Enter Subnet"
+      style="width: 90%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"
+    />
+    <div *ngIf="formGroup?.invalid && formGroup?.touched" style="color: red;">
+      Subnet is required.
+    </div>
 
-<div></div>
-
+    <app-nic></app-nic>
+  </div>
+  

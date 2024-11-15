@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./subnet.component.css']
 })
 export class SubnetComponent implements OnInit {
-  @Input() parentForm!: FormGroup; 
+  @Input() formGroup: FormGroup;
   constructor() { }
 
   ngOnInit(): void {

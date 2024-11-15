@@ -3,41 +3,32 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-resourceForm',
-  templateUrl: './ResourceForm.component.html',
-  styleUrls: ['./ResourceForm.component.css']
+  templateUrl: './resourceForm.component.html',
+  styleUrls: ['./resourceForm.component.css']
 })
 export class ResourceFormComponent {
-  checkoutForm: FormGroup;
-  showSubnet: boolean = false;
+  networkForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.checkoutForm = this.fb.group({
+    this.networkForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       operator: ['', [Validators.required]],
-      address: ['', Validators.required],
-      networks: this.fb.array([])  
+      description: ['', Validators.required],
+      subnets: this.fb.array([])  
     });
   }
-
-  // Getter for networks form array
-  get networks() {
-    return (this.checkoutForm.get('networks') as FormArray);
+  get subnets() {
+    return this.networkForm.get('subnets') as FormArray;
   }
 
-  addNetwork(type: string): void {
-    if (type === 'subnet') {
-      this.showSubnet = true;  
-    }
+  addSubnet(): void {
+    this.subnets.push(this.fb.control('', Validators.required));
+  }
+  removeSubnet(index: number): void {
+    this.subnets.removeAt(index);
   }
 
-  // Method to remove a network form
-  removeNetwork(index: number): void {
-    this.networks.removeAt(index);
-    this.showSubnet = false;  // Hide subnet component if no 'subnet' network exists
-  }
-
-  // Submit form handler
   onSubmit(): void {
-    console.log(this.checkoutForm.value);
+    console.log('Form Data:', this.networkForm.value);
   }
 }
