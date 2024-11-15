@@ -15,8 +15,8 @@ import { NicComponent } from './nic/nic.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ResourceFormComponent,
     VnetComponent,
+    ResourceFormComponent,
     SubnetComponent,
     NicComponent,
   ],

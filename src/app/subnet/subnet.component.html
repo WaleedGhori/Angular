@@ -1,13 +1,22 @@
-<div [formGroup]="resourceForm">
-  <label>Subnet:</label>
-  <input
-    type="text"
-    formControlName="subnetName"
-    placeholder="Enter Subnet"
-    style="width: 90%; padding: 5px; border: 1px solid #ddd; border-radius: 4px;"
-  />
-  <div *ngIf="resourceForm.get('subnetName')?.invalid && resourceForm.get('subnetName')?.touched" style="color: red;">
-    Subnet is required.
+<app-resourceForm></app-resourceForm>
+
+<form [formGroup]="networkForm">
+  <button type="button" (click)="addNic()" style="margin-left: 300px; background-color: blue; color: white; padding: 4px; margin-top:12px; margin-bottom: 12px; border:none; border-radius: 8px; padding: 12px;">Add Nic</button>
+
+  <div formArrayName="nic">
+    <div *ngFor="let nic of nic.controls; let i = index" [formGroupName]="i">
+      <app-nic [resourceForm]="subnet"></app-nic>
+      <!-- <button type="button" (click)="removeSubnet(i)">Remove Subnet</button> -->
+    </div>
   </div>
-  <app-nic></app-nic>
-</div>
+</form>
+
+ <!-- <button type="button" (click)="addNic()" style="margin-top: 20px;">Add Nic</button> -->
+  <!-- <div formArrayName="subnets" style="margin-top: 20px;">
+   <div *ngFor="let subnet of subnets.controls; let i = index" [formGroupName]="i">
+     <app-nic [resourceForm]="subnet"></app-nic>
+   </div>
+ </div> -->
+
+<!-- 
+mat accordian -->

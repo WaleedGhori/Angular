@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ResourceFormComponent } from './ResourceForm/ResourceForm.component';
+import { VnetComponent } from './Vnet/Vnet.component';
 
 const routes: Routes = [
-  {path:'',component:ResourceFormComponent}
+  {path:'',component:VnetComponent}
 ];
 
 @NgModule({

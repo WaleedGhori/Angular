@@ -7,29 +7,11 @@
     </div>
   </div>
 
-  <div style="margin-bottom: 15px;">
-    <label for="operator">Operator:</label>
-    <input id="operator" formControlName="operator" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
-    <div *ngIf="networkForm.get('operator')?.invalid && networkForm.get('operator')?.touched" style="color: red;">
-      Operator is required
-    </div>
-  </div>
-
   <div style="margin-bottom: 20px;">
     <label for="description">Description:</label>
     <input id="description" formControlName="description" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
     <div *ngIf="networkForm.get('description')?.invalid && networkForm.get('description')?.touched" style="color: red;">
       Description is required
-    </div>
-  </div>
-
-  <button type="button" (click)="addSubnet()" style="margin-top: 20px;">Add Subnet</button>
-  <div formArrayName="subnets" style="margin-top: 20px;">
-    <div *ngFor="let subnet of subnets.controls; let i = index" [formGroupName]="i">
-      <app-subnet [resourceForm]="subnet"></app-subnet>
-      <button type="button" (click)="removeSubnet(i)" style="background-color: red; color: white; margin-top: 10px;">
-        Remove Subnet
-      </button>
     </div>
   </div>
 

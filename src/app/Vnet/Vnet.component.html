@@ -1,6 +1,17 @@
 <app-resourceForm></app-resourceForm>
- <button onclick="addRender">Add Subnet</button>
-<div ngFor="renderValue" >
-    <app-subnet></app-subnet>
 
-</div>
+<form [formGroup]="networkForm">
+  <button type="button" (click)="addSubnet()" style="margin-left: 300px; background-color: blue; color: white; padding: 4px; margin-top:12px; margin-bottom: 12px; border:none; border-radius: 8px; padding: 12px;">Add Subnet</button>
+
+  <div formArrayName="subnets">
+    <div *ngFor="let subnet of subnets.controls; let i = index" [formGroupName]="i">
+      <app-subnet [resourceForm]="subnet"></app-subnet>
+
+      <!-- <button type="button" (click)="removeSubnet(i)">Remove Subnet</button> -->
+    </div>
+  </div>
+</form>
+`
+    <!-- <app-subnet></app-subnet> -->
+
+

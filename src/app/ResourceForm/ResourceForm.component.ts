@@ -12,9 +12,8 @@ export class ResourceFormComponent {
   constructor(private fb: FormBuilder) {
     this.networkForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
-      operator: ['', [Validators.required]],
       description: ['', Validators.required],
-      subnets: this.fb.array([]) // Empty Array to save the value of subnets form
+      subnets: this.fb.array([])
     });
   }
 
