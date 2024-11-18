@@ -1,0 +1,10 @@
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+.accordian{
+    width: 53%;
+    margin: 12px auto;
+    color: black;
+}
+

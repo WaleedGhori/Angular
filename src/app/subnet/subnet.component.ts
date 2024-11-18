@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-subnet',
@@ -9,8 +10,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SubnetComponent implements OnInit {
   @Input() resourceForm!: FormGroup;
   networkForm: FormGroup
-
-
+  panelOpenState = false;
+  
   constructor(private fb: FormBuilder) {
     this.networkForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],

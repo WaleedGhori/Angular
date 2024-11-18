@@ -1,18 +1,46 @@
-<form [formGroup]="networkForm" (ngSubmit)="onSubmit()" style="width: 50%; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
-  <div style="margin-bottom: 15px;">
-    <label for="fullName">Name:</label>
-    <input id="fullName" formControlName="fullName" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
-    <div *ngIf="networkForm.get('fullName')?.invalid && networkForm.get('fullName')?.touched" style="color: red;">
-      Name is required
-    </div>
-  </div>
 
-  <div style="margin-bottom: 20px;">
-    <label for="description">Description:</label>
-    <input id="description" formControlName="description" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
-    <div *ngIf="networkForm.get('description')?.invalid && networkForm.get('description')?.touched" style="color: red;">
-      Description is required
-    </div>
-  </div>
+  <form [formGroup]="networkForm" (ngSubmit)="onSubmit()" style="width: 50%;  margin:12px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: #414141;">
 
-</form>
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput id="fullName" formControlName="fullName">
+    </mat-form-field>
+`
+    <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <!-- <input matInput id="fullName" formControlName="fullName" style="color: black;"> -->
+      <input matInput id="description" formControlName="description" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Tag</mat-label>
+      <input matInput id="tag" formControlName="tag"  style="color: black;">
+    </mat-form-field>
+
+   
+    <!-- <div style="margin-bottom: 15px; margin-top: 12px;">
+      <label for="fullName">Name:</label>
+      <input id="fullName" formControlName="fullName" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
+      <div *ngIf="networkForm.get('fullName')?.invalid && networkForm.get('fullName')?.touched" style="color: red;">
+        Name is required
+      </div>
+    </div> -->
+  
+    <!-- <div style="margin-bottom: 20px;">
+      <label for="description">Description:</label>
+      <input id="description" formControlName="description" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
+      <div *ngIf="networkForm.get('description')?.invalid && networkForm.get('description')?.touched" style="color: red;">
+        Description is required
+      </div>
+    </div>
+   -->
+  
+    <!-- <div style="margin-bottom: 20px;">
+      <label for="tag">Tags:</label>
+      <input id="tag" formControlName="tag" style="width: 97%; padding: 10px; border: 2px solid #ddd; border-radius: 6px;">
+      <div *ngIf="networkForm.get('tag')?.invalid && networkForm.get('tag')?.touched" style="color: red;">
+        Tag is required
+      </div>
+    </div> -->
+  
+  </form>

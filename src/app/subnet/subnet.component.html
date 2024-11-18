@@ -1,15 +1,27 @@
-<app-resourceForm></app-resourceForm>
+<!-- <h3 style="text-align: center; font-size: medium;">Subnet Component</h3> -->
+<mat-accordion>
+  <mat-expansion-panel class="accordian" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header >
+      <mat-panel-title>
+        Subnet Component
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-resourceForm></app-resourceForm>
+    <form [formGroup]="networkForm">
+      <button type="button" (click)="addNic()" style=" background-color: rgb(27, 27, 112);; color: white; margin-top:12px; margin-bottom: 12px; border:none; border-radius: 20px; padding: 12px 16px; cursor: pointer;">Add Nic</button>
+    
+      <div formArrayName="nic">
+        <div *ngFor="let nic of nic.controls; let i = index" [formGroupName]="i">
+            <app-nic [resourceForm]="subnet"></app-nic>
+            <!-- <button type="button" (click)="removeSubnet(i)">Remove Subnet</button> -->
+          </div>
+        </div>
+    
+    </form>
+  </mat-expansion-panel>
+</mat-accordion>
 
-<form [formGroup]="networkForm">
-  <button type="button" (click)="addNic()" style="margin-left: 300px; background-color: blue; color: white; padding: 4px; margin-top:12px; margin-bottom: 12px; border:none; border-radius: 8px; padding: 12px;">Add Nic</button>
 
-  <div formArrayName="nic">
-    <div *ngFor="let nic of nic.controls; let i = index" [formGroupName]="i">
-      <app-nic [resourceForm]="subnet"></app-nic>
-      <!-- <button type="button" (click)="removeSubnet(i)">Remove Subnet</button> -->
-    </div>
-  </div>
-</form>
 
  <!-- <button type="button" (click)="addNic()" style="margin-top: 20px;">Add Nic</button> -->
   <!-- <div formArrayName="subnets" style="margin-top: 20px;">

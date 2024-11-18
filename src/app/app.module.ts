@@ -10,8 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { VnetComponent } from './Vnet/Vnet.component';
 import { SubnetComponent } from './subnet/subnet.component';
 import { NicComponent } from './nic/nic.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,7 @@ import { NicComponent } from './nic/nic.component';
     SubnetComponent,
     NicComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule, MatCardModule, MatExpansionModule,MatInputModule],
   providers: [],
   bootstrap: [AppComponent],
 })
