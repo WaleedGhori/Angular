@@ -10,3 +10,10 @@
   .example-full-width {
     width: 100%;
   }
+  table {
+    width: 100%;
+  }
+
+  .table-height{
+    margin-top: 20px;
+  }
