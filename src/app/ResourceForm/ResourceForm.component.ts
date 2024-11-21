@@ -29,37 +29,42 @@ export class ResourceFormComponent {
     this.networkForm = this.fb.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', Validators.required],
-      subnets: this.fb.array([]),
       tablerow: this.fb.array([])
     });
+   
+    this.populateTableRows(ELEMENT_DATA);
   }
-
+  
+  populateTableRows(data: PeriodicElement[]): void {
+    data.forEach(element => {
+      this.tablerow.push(
+        this.fb.group({
+          key: [element.key, Validators.required],
+          value: [element.value, Validators.required],
+        })
+      );
+    });
+  }
+  
   get tablerow() {
-    return this.networkForm.get('tablerow') as FormArray;
+      return this.networkForm.get('tablerow') as FormArray;
   }
+  
   addTableRow(): void {
-    const tablerow = this.fb.group({
-      tablerowname: ['', Validators.required]
+    console.log("waleed");
+    
+    const rowGroup = this.fb.group({
+      key: ['', Validators.required],
+      value: ['', Validators.required],
     });
-    this.tablerow.push(tablerow);
+    this.tablerow.push(rowGroup);
   }
-
-  get subnets() {
-    return this.networkForm.get('subnets') as FormArray;
-  }
-
-  addSubnet(): void {
-    const subnetGroup = this.fb.group({
-      subnetName: ['', Validators.required]
-    });
-    this.subnets.push(subnetGroup);
-  }
-
-  removeSubnet(index: number): void {
-    this.subnets.removeAt(index);
-  }
-
+  
   onSubmit(): void {
-    console.log('Form Data:', this.networkForm.value);
+    if (this.networkForm.valid) {
+      console.log('Form Data:', this.networkForm.value);
+    } else {
+      console.error('Form is invalid');
+    }
   }
 }
