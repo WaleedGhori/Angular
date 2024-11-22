@@ -1,4 +1,4 @@
-<app-resourceForm></app-resourceForm>
+<app-resourceForm (formDataEmitter)="onFormDataReceived($event)"></app-resourceForm>
 
 <form [formGroup]="networkForm">
   <button type="button" (click)="addSubnet()" style="margin-left: 300px; background-color: rgb(27, 27, 112); color: white; margin-top:12px; margin-bottom: 12px; border:none; border-radius: 20px; padding: 12px 16px; cursor: pointer;">Add Subnet</button>

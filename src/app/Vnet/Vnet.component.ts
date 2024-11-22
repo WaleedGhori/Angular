@@ -10,7 +10,7 @@ export class VnetComponent  {
   @Input() parentForm!: FormGroup;
   
   networkForm: FormGroup;
-  
+  resourceFormData: any;
 
   constructor(private fb: FormBuilder) {
     this.networkForm = this.fb.group({
@@ -33,6 +33,11 @@ export class VnetComponent  {
 
   removeSubnet(index: number): void {
     this.subnets.removeAt(index);
+  }
+
+  onFormDataReceived(data: any) {
+    this.resourceFormData = data; // Store the data for use in the template
+    console.log('Received form data:', this.resourceFormData);
   }
  
 }
