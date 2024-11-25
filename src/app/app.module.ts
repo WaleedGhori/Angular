@@ -15,6 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import { TaskComponent } from './task/Task.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {MatTableModule} from '@angular/material/table';
     ResourceFormComponent,
     SubnetComponent,
     NicComponent,
+    TaskComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, ReactiveFormsModule, BrowserAnimationsModule, MatCardModule, MatExpansionModule,MatInputModule,MatTableModule],
   providers: [],

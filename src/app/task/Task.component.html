@@ -1,0 +1,195 @@
+<div>
+  <div>
+    <form
+      [formGroup]="networkForm"
+      (ngSubmit)="onSubmit()"
+      style="width: 95%; margin: 12px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background-color: whitesmoke;"
+    >
+      <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 10px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 12px;">*ACCOUNT:</label>
+          <input id="fullName" formControlName="account" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 12px;">*ACCOUNT NAME:</label>
+          <input id="description" formControlName="accountName" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 12px;">*FREIGHT MASTER ACCOUNT:</label>
+          <input id="description" formControlName="freightAccount" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 12px;">*CREATED DATE:</label>
+         
+          <input type="date" id="description" formControlName="createdDate" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 12px;">*JOB TYPE:</label>
+          <select style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+            <option>~Select Job Type~</option>
+            <option>Import AirPort</option>
+          </select>
+          <!-- <input id="description" formControlName="description" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;"> -->
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <label style="font-size: 12px;">*JOB NO:</label>
+          <input id="description" formControlName="jobNo" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+        </div>
+      </div>
+
+      <hr style="margin: 20px 0; border: 0.5px solid #ddd;">
+
+      <div style="display: flex; flex-direction: row; gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; width: 45%;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*SHIPPER NAME:</label>
+            <input id="fullName" formControlName="shipperName" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*CONSIGNEE:</label>
+            <input id="fullName" formControlName="consignee" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*REFERENCE:</label>
+            <input id="fullName" formControlName="reference" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*FLIGHT NO:</label>
+            <input id="fullName" formControlName="flightNo" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*CONTENTS:</label>
+            <input id="fullName" formControlName="contents" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; width: 27%;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*WAWB:</label>
+            <input id="fullName" formControlName="wawb" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*ORIGIN:</label>
+            <input id="fullName" formControlName="origin" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*NO OF PIECES:</label>
+            <input id="fullName" formControlName="noOfPieces" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">CHARGES WEIGHT:</label>
+            <input id="fullName" formControlName="chargesAmount" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">FLIGHT DATE:</label>
+            <input  type="date" id="fullName" formControlName="flightDate" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; width: 27%;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*WAWB:</label>
+            <input id="fullName" formControlName="wawb1" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">*DESTINATION:</label>
+            <input id="fullName" formControlName="destination" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">GROSS WEIGHT:</label>
+            <input id="fullName" formControlName="grossWeight" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">Volume:</label>
+            <input id="fullName" formControlName="vloume" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <label style="font-size: 12px;">ARRIVAL DATE:</label>
+            <input type="date" id="fullName" formControlName="arrivalDate" style="flex: 1; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+          </div>
+        </div>
+      </div>
+
+      <hr style="margin: 20px 0; border: 0.5px solid #ddd;">
+
+     <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; margin-top: 20px;">
+  <thead>
+    <tr style="background-color: #f5f5f5; border-bottom: 2px solid #ddd;">
+      <th style="padding: 10px; text-align: center;">
+        <button (click)="addTableRow()"  style="padding: 5px 10px; border-radius: 4px; border: 1px solid red; background-color: red; color: white; cursor: pointer;">+</button>
+      </th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">HAWB</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">SHIPPER</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">CONSIGNEE</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">ORIGIN</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">DESTINATION</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">REFERENCE</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 80px;">C.CODE</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">DESCRIPTION</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 80px;">QTY</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 80px;">UOM</th>
+      <th style="padding: 10px; text-align: left; font-weight: normal; font-size: 10px; width: 120px;">NOTES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of tablerow.controls; let i = index" [formGroupName]="i" style="border-bottom: 1px solid #ddd; background-color: #fff;">
+      <td style="padding: 10px; text-align: center;">
+        <button style="padding: 5px 10px; border-radius: 4px; border: 1px solid red; background-color: red; color: white; cursor: pointer;">Del</button>
+      </td>
+      <td style="padding: 10px;">
+        <input id="fullName" formControlName="hawb" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <input id="shipper" formControlName="shipper" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <input id="consignee" formControlName="consignee" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <input id="origin" formControlName="origin" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <input id="destination" formControlName="destination" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <input id="reference" formControlName="reference" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <select formControlName="code" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+          <option>~Select Type~</option>
+          <option>Code 1</option>
+          <option>Code 2</option>
+        </select>
+      </td>
+      <td style="padding: 10px;">
+        <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; box-sizing: border-box;">
+         
+          <span style="background-color: #f5f5f5; padding: 8px; border-right: 1px solid #ccc;">Eye</span>
+        </div>
+      </td>
+      <td style="padding: 10px;">
+        <input type="number" id="qty" formControlName="qty" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <input id="uom" formControlName="uom" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc; box-sizing: border-box;">
+      </td>
+      <td style="padding: 10px;">
+        <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; box-sizing: border-box;">
+          <input id="notes" formControlName="notes" style="flex: 1; padding: 8px; border: none; outline: none; box-sizing: border-box; width: 80px;">
+          <span style="background-color: #f5f5f5; padding: 8px; border-right: 1px solid #ccc;">Eye</span>
+        </div>
+      </td>
+    </tr>
+    
+  </tbody>
+  
+</table>
+
+    </form>
+  </div>
+</div>
