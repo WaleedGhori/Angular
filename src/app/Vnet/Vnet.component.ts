@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -35,9 +35,15 @@ export class VnetComponent  {
     this.subnets.removeAt(index);
   }
 
-  onFormDataReceived(data: any) {
-    this.resourceFormData = data; // Store the data for use in the template
-    console.log('Received form data:', this.resourceFormData);
+
+  onFormDataReceived(data: any = null): void {
+    const formData = data || this.networkForm.value; 
+    this.resourceFormData = {
+      ...formData,
+      subnets: this.subnets.value, 
+    };
+  
+    console.log('Complete Form Data:', this.resourceFormData);
   }
- 
+  
 }

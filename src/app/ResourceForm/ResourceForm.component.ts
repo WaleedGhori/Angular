@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 export class ResourceFormComponent {
   @Output() formDataEmitter = new EventEmitter<any>();
 
+
   networkForm: FormGroup;
 
 
@@ -47,4 +48,6 @@ export class ResourceFormComponent {
       console.error('Form is invalid');
     }
   }
+
+  
 }

@@ -57,11 +57,11 @@ export class TaskComponent {
     this.tablerow.push(rowGroup);
   }
 
-  // onSubmit(): void {
-  //   if (this.networkForm.valid) {
-  //     console.log('Form Data:', this.networkForm.value);
-  //   } else {
-  //     console.error('Form is invalid');
-  //   }
-  // }
+  onSubmit(): void {
+    if (this.networkForm.valid) {
+      console.log('Form Data:', this.networkForm.value);
+    } else {
+      console.error('Form is invalid');
+    }
+  }
 }
