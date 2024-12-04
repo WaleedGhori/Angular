@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ResourceFormComponent } from '../ResourceForm/ResourceForm.component';
 
 @Component({
   selector: 'app-vnet',
@@ -8,7 +9,8 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class VnetComponent  {
   @Input() parentForm!: FormGroup;
-  
+  @ViewChild(ResourceFormComponent) resourceFormComponent!: ResourceFormComponent;
+
   networkForm: FormGroup;
   resourceFormData: any;
 
@@ -44,6 +46,10 @@ export class VnetComponent  {
     };
   
     console.log('Complete Form Data:', this.resourceFormData);
+  }
+
+  accessResourceForm() : void{
+    this.resourceFormComponent.onSubmit();
   }
   
 }

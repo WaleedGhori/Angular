@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 
-
-
 @Component({
   selector: 'app-resourceForm',
   templateUrl: './resourceForm.component.html',
@@ -11,9 +9,7 @@ import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 export class ResourceFormComponent {
   @Output() formDataEmitter = new EventEmitter<any>();
 
-
   networkForm: FormGroup;
-
 
   constructor(private fb: FormBuilder) {
     this.networkForm = this.fb.group({
@@ -21,7 +17,6 @@ export class ResourceFormComponent {
       description: ['', Validators.required],
       tablerow: this.fb.array([]),
     });
-
   }
 
   get tablerow(): FormArray {
@@ -48,6 +43,4 @@ export class ResourceFormComponent {
       console.error('Form is invalid');
     }
   }
-
-  
 }

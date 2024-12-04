@@ -25,9 +25,7 @@ export class SubnetComponent implements OnInit {
   }
 
   addNic(): void {
-    const nicGroup = this.fb.group({
-      nicName: ['', Validators.required]
-    });
+    const nicGroup = this.fb.group({});
     this.nic.push(nicGroup);
   }
 
